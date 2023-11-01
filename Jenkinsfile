@@ -1,10 +1,10 @@
-pipeline {
-
+pipeline{
 environment {
- registry = "hudakukaswadia/vatcal"
+registry = "hudakukaswadia/vatcal"
         registryCredentials = "dockerhub_id"
         dockerImage = ""
     }
+    agent any
         stages {
             stage ('Build Docker Image'){
                 steps{
@@ -13,7 +13,7 @@ environment {
                     }
                 }
             }
-
+ 
             stage ("Push to Docker Hub"){
                 steps {
                     script {
@@ -24,7 +24,7 @@ environment {
                     }
                 }
             }
-
+ 
             stage ("Clean up"){
                 steps {
                     script {
